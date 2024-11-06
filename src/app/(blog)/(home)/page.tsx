@@ -36,11 +36,8 @@ export default async function Home() {
   return (
     <div className="lg:max-w-[1440px] max-w-[375px] w-full min-h-[860px] grid lg:grid-cols-1 grid-rows-[auto_auto] gap-10 px-10 lg:px-[160px] pb-10">
       <Summary />
-      <div className=" text-black lg:max-w-[1120px] min-h-[1091px]  items-center justify-center ">
+      <div className=" text-black lg:max-w-[1120px] lg:max-h-[732px] lg:min-h-[732px] items-center max-w-[300px]">
         <DataTable columns={columns} data={transactions} />
-      </div>
-      <div className="text-white flex items-center justify-center">
-        Paginacaco
       </div>
     </div>
   )
