@@ -66,6 +66,18 @@ export const columns: ColumnDef<Transaction>[] = [
   {
     accessorKey: 'createdat',
     header: () => <div className="text-white">Data</div>,
+    cell: ({ row }) => {
+      // Obtendo a data da API no formato ISO 8601
+      const dateString = row.getValue('createdat') as string
+
+      // Convertendo a string de data para um objeto Date
+      const date = new Date(dateString)
+
+      // Formatando a data para o formato 'dd/MM/yyyy'
+      const formattedDate = new Intl.DateTimeFormat('pt-BR').format(date)
+
+      return <div className="text-white">{formattedDate}</div>
+    },
   },
 
   {
@@ -92,7 +104,9 @@ export const columns: ColumnDef<Transaction>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem className="text-red-300">
+              Delete Transacation
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

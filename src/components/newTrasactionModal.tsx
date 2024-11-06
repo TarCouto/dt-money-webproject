@@ -36,7 +36,7 @@ export function NewTransactionModal() {
         description: data.description,
         type: data.type,
         category: data.category,
-        price: data.price.toString(),
+        price: data.price,
       })
       console.log('Transação criada com sucesso')
       reset()
