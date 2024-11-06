@@ -127,7 +127,7 @@ export function NewTransactionModal() {
                 </div>
               )}
             />
-
+            <Dialog.Close asChild>
             <button
               type="submit"
               disabled={isSubmitting}
@@ -135,6 +135,7 @@ export function NewTransactionModal() {
             >
               Cadastrar
             </button>
+            </Dialog.Close>
           </form>
         </div>
       </div>
