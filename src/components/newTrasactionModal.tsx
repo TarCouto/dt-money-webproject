@@ -9,6 +9,7 @@ import * as z from 'zod'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { setTransactions } from '@/utils/setTransactions'
+import { useState } from 'react'
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -20,6 +21,7 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
+  const [isOpen, setIsOpen] = useState(false)
   const {
     control,
     register,
@@ -40,6 +42,7 @@ export function NewTransactionModal() {
       })
       console.log('Transação criada com sucesso')
       reset()
+      setIsOpen(false)
     } catch (error) {
       console.error('Erro ao criar transação:', error)
     }

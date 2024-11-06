@@ -23,7 +23,7 @@ export async function getTransactions(): Promise<TransactionsResponse> {
 
   const response = await api('/transactions', {
     next: {
-      revalidate: 60 * 60, // Revalida a cada 1 hora
+      revalidate: 0, // Revalida a cada 1 hora
     },
   })
 
